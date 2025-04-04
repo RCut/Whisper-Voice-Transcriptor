@@ -5,6 +5,5 @@ build/
 *.log
 logs/
 *.exe
-*.ico
 *.spec
 .env
