@@ -1,4 +1,4 @@
-requirements.txtopenai-whisper
+openai-whisper
 torch
 numpy
 tk
