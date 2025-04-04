@@ -1,0 +1,4 @@
+requirements.txtopenai-whisper
+torch
+numpy
+tk
