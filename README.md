@@ -39,24 +39,6 @@ Version: **1.1.0**
 
 ---
 
-## 📁 Installation
-
-> Requires Python 3.9+
-
-To run as source:
-```bash
-pip install -r requirements.txt
-python transcriber.py
-```
-
-To build as standalone executable:
-```bash
-pyinstaller --onefile --windowed --icon=icon.ico transcriber.py
-```
-The output `.exe` will be in the `/dist` folder unless overridden.
-
----
-
 ## 🌐 Supported Formats
 Input audio files:
 - `.mp3`, `.m4a`, `.wav`, `.flac`, `.aac`, `.ogg`
@@ -66,24 +48,76 @@ Output transcription formats:
 
 ---
 
-## 🔧 Configuration
-- All options are accessible via the UI.
-- Last used options are saved to a `.whisper_ui_config.json` file in the user's home directory.
+## 🔧 Installation
+
+This app runs on **Python 3.9 or newer** and works on **Windows, macOS, and Linux**.
+
+
+### 📦 Step-by-Step Installation
+
+1. **Install Python 3.9+**
+
+   - [Download Python here](https://www.python.org/downloads/)
+   - Make sure to check ✅ "Add Python to PATH" during installation (on Windows)
+
+
+2. **Clone the Repository**
+
+```bash
+git clone https://github.com/RCut/Whisper-Voice-Transcriptor.git
+cd Whisper-Voice-Transcriptor
+```
+
+
+3. **Install Required Dependencies**
+
+Make sure you have `pip` (comes with Python). Then run:
+
+```bash
+pip install -r requirements.txt
+```
+
+This will install:
+- [`whisper`](https://github.com/openai/whisper)
+- `torch` (PyTorch, used under the hood)
+- `numpy`, `tkinter`, and other UI/audio tools
+
+If you see errors related to `torch`, use this alternative:
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+```
+
+4. **(Optional) Install ffmpeg**
+
+Whisper needs `ffmpeg` for audio decoding. Most systems already have it.
+
+- **Windows**: [Download ffmpeg here](https://ffmpeg.org/download.html) and add to PATH
+- **macOS**: `brew install ffmpeg`
+- **Linux**: `sudo apt install ffmpeg`
+
+
+5. **Run the App**
+
+```bash
+python transcriber.py
+```
+
+This will launch the GUI interface. You can now select files or folders and transcribe them with Whisper.
+
+
+6. **(Optional) Build into .exe**
+
+To create a Windows `.exe`:
+```bash
+pyinstaller --onefile --windowed --icon=icon.ico transcriber.py
+```
+
+The executable will appear in the `dist/` folder. No internet is required after the first run (Whisper model is cached).
 
 ---
 
 ## 🎓 License
 MIT
-
----
-
-## 🚀 Roadmap Ideas
-See `CHANGELOG.md` for current and planned improvements.
-
-- File preview mode
-- Drag-and-drop support
-- In-app playback with synchronized transcript
-- Parallel model execution (experimental)
 
 ---
 
